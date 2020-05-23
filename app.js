@@ -77,6 +77,11 @@ document.addEventListener('DOMContentLoaded', () => {
     })
   }
 
-  draw();
+  //undraw the Tetromino
+  function undraw() {
+    current.forEach(index => {
+      squares[currentPosition + index].classList.remove('tetromino')
+    })
+  }
 
 })
