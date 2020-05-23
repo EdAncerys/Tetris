@@ -84,4 +84,19 @@ document.addEventListener('DOMContentLoaded', () => {
     })
   }
 
+  // Move down Tetrominos in set time intervals
+  let timerId = setInterval(moveDown, 1000);
+
+  //move down function
+  function moveDown() {
+    undraw()
+    currentPosition += width
+    draw()
+  }
+
+
+
+
+
+
 })
