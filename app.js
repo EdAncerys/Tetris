@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   for(let i = 0; i < 10; i++) {
     let div_element = document.createElement('div'); // Create element
-    div_element.className = 'bottom';
+    div_element.className = 'taken';
     // div_element.innerHTML = 'div';  // Insert inner text
     document.querySelector('#grid').appendChild(div_element);
   };
@@ -87,6 +87,20 @@ document.addEventListener('DOMContentLoaded', () => {
   // Move down Tetrominos in set time intervals
   let timerId = setInterval(moveDown, 100);
 
+  //assign functions to keyCodes
+  function control(e) {
+    if(e.keyCode === 37) {
+      moveLeft()
+    } else if (e.keyCode === 38) {
+      rotate()
+    } else if (e.keyCode === 39) {
+      moveRight()
+    } else if (e.keyCode === 40) {
+      moveDown()
+    }
+  }
+  document.addEventListener('keyup', control)
+
   //move down function
   function moveDown() {
     undraw();
@@ -97,8 +111,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
   //freeze function
   function freeze() {
-    if(current.some(index => squares[currentPosition + index + width].classList.contains('bottom'))) {
-      current.forEach(index => squares[currentPosition + index].classList.add('bottom'));
+    if(current.some(index => squares[currentPosition + index + width].classList.contains('taken'))) {
+      current.forEach(index => squares[currentPosition + index].classList.add('taken'));
       // start a new tetromino falling
       random = Math.floor(Math.random()*theTetrominoes.length);
       current = theTetrominoes[random][currentRotation];
@@ -107,9 +121,16 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
-
-
-  console.log(squares)
+  //move the tetromino left, unless is at the edge or there is a blockage
+  function moveLeft() {
+    undraw()
+    const isAtLeftEdge = current.some(index => (currentPosition + index) % width === 0)
+    if(!isAtLeftEdge) currentPosition -=1
+    if(current.some(index => squares[currentPosition + index].classList.contains('taken'))) {
+      currentPosition +=1
+    }
+    draw()
+  }
 
 
 })
