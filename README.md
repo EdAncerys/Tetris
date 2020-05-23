@@ -12,15 +12,23 @@ UI written in HTML and can be viewed in any automated browser. Model written in 
 No dependencies need to add in order to play the game. Before starting the game open `index.htm` file in the browser or with live server.
 <br />
 
+## Tetrominos ##
+
+<p align="center">
+    <img width="400" src="images/Tetrominos.png"><br />
+    *Tetrominos*
+</p>
+
 ## Usage ##
 Run the game by opening `index.html`.
 
-```
 ## Controls ##  
 
+```
 <br />`a`- Move Left
 <br />`s`- Move Right
 <br />`k`- Rotate Left
 <br />`l`- Rotate Right
 <br />`space`- Hard drop
 <br /><strong>Compatibility: python version 3.7.0 or later</strong>
+```
