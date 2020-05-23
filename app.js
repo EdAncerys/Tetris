@@ -4,9 +4,14 @@ document.addEventListener('DOMContentLoaded', () => {
     let div_element = document.createElement('div'); // Create element
     div_element.className = 'inner-div'
     div_element.innerHTML = 'div';  // Insert inner text
-    document.getElementById('grid').appendChild(div_element);
+    document.querySelector('#grid').appendChild(div_element);
+  };
 
-  }
+  const grid = document.querySelector('#grid');
+  let squres = Array.from(document.querySelectorAll('.inner-div'));
+  const ScoreDisplay = document.querySelector('#score');
+  const StartBtn = document.querySelector('#start-btn')
+  const width = 10;
   
-
+  // console.log(squres)
 })
