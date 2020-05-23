@@ -1,0 +1,13 @@
+#grid {
+  width: 200px;
+  height: 400px; 
+  display: flex;
+  flex-wrap: wrap;
+  background-color: #c3c3c3;
+}
+
+#grid div {
+  width: 20px;
+  height: 20px;
+  background-color: yellow;
+}
