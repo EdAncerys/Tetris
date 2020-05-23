@@ -1,25 +1,23 @@
 document.addEventListener('DOMContentLoaded', () => {
   // Fires up only when HTML document loads
-  // Adding grid tiles
   for(let i = 0; i < 200; i++) {
-    let div_element = document.createElement('div'); // Create element
-    div_element.className = 'bottom';
-    // div_element.innerHTML = 'div';  // Insert inner text
-    document.querySelector('#grid').appendChild(div_element);
-  };
-  // Add bottom grid to implement if condition to stop Tetrominos from exitting the canvas
-  for(let i = 0; i < 10; i++) {
     let div_element = document.createElement('div'); // Create element
     div_element.className = 'inner-div'
     // div_element.innerHTML = 'div';  // Insert inner text
     document.querySelector('#grid').appendChild(div_element);
   };
 
+  for(let i = 0; i < 10; i++) {
+    let div_element = document.createElement('div'); // Create element
+    div_element.className = 'bottom'
+    // div_element.innerHTML = 'div';  // Insert inner text
+    document.querySelector('#grid').appendChild(div_element);
+  };
 
   const grid = document.querySelector('#grid');
-  let squres = Array.from(document.querySelectorAll('.inner-div'));
+  let squares = Array.from(document.querySelectorAll('.inner-div'));
   const ScoreDisplay = document.querySelector('#score');
-  const StartBtn = document.querySelector('#start-btn');
+  const StartBtn = document.querySelector('#start-btn')
   const width = 10;
 
   // console.log(squres[7]);
@@ -62,7 +60,23 @@ document.addEventListener('DOMContentLoaded', () => {
   ];
 
   // Storeing all tetrominos in array
-  const theTetrominos = [lTetromino, zTetromino, tTetromino, oTetromino, iTetromino];
+  const theTetrominoes = [lTetromino, zTetromino, tTetromino, oTetromino, iTetromino]
 
+  let currentPosition = 3
+  let currentRotation = 0
+
+
+  //randomly select a Tetromino and its first rotation
+  let random = Math.floor(Math.random()*theTetrominoes.length)
+  let current = theTetrominoes[random][currentRotation]
+
+  //draw the Tetromino
+  function draw() {
+    current.forEach(index => {
+      squares[currentPosition + index].classList.add('tetromino')
+    })
+  }
+
+  draw();
 
 })
