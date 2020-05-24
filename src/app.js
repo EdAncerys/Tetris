@@ -82,7 +82,6 @@ document.addEventListener('DOMContentLoaded', () => {
   let currentPosition = 3;
   let currentRotation = 0;
 
-
   //randomly select a Tetromino and its first rotation
   let random = Math.floor(Math.random()*theTetrominoes.length);
   let current = theTetrominoes[random][currentRotation];
@@ -94,7 +93,7 @@ document.addEventListener('DOMContentLoaded', () => {
       squares[currentPosition + index].style.backgroundColor = colors[random];
     })
   }
-
+  console.log(squares[0].classList)
   //undraw the Tetromino
   function undraw() {
     current.forEach(index => {
@@ -180,7 +179,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // show next Tetromino in mini-grid
   const displaySquares = document.querySelectorAll('#mini-grid div');
   const displayWidth = 4;
-  let displayIndex = 0;
+  const displayIndex = 0;
 
   // The Tetrominoes without rotation
   const upNextTetrominoes = [
@@ -245,8 +244,5 @@ document.addEventListener('DOMContentLoaded', () => {
       clearInterval(timerId);
     }
   }
-
-
-
 
 })
