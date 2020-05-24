@@ -14,6 +14,13 @@ document.addEventListener('DOMContentLoaded', () => {
     document.querySelector('#grid').appendChild(div_element);
   };
 
+  for(let i = 0; i < 16; i++) {
+    let div_element = document.createElement('div'); // Create element
+    div_element.className = 'mini';
+    // div_element.innerHTML = 'div';  // Insert inner text
+    document.querySelector('#mini-grid').appendChild(div_element);
+  };
+
   const grid = document.querySelector('#grid');
   let squares = Array.from(document.querySelectorAll('#grid div'));
   const ScoreDisplay = document.querySelector('#score');
