@@ -29,6 +29,13 @@ document.addEventListener('DOMContentLoaded', () => {
   let nextRandom = 0;
   let timerId;
   let score = 0;
+  const colors = [
+    'orange',
+    'red',
+    'purple',
+    'green',
+    'blue'
+  ];
 
   // console.log(squres[7]);
 
@@ -84,6 +91,7 @@ document.addEventListener('DOMContentLoaded', () => {
   function draw() {
     current.forEach(index => {
       squares[currentPosition + index].classList.add('tetromino');
+      squares[currentPosition + index].style.backgroundColor = colors[random];
     })
   }
 
@@ -91,6 +99,7 @@ document.addEventListener('DOMContentLoaded', () => {
   function undraw() {
     current.forEach(index => {
       squares[currentPosition + index].classList.remove('tetromino');
+      squares[currentPosition + index].style.backgroundColor = '';
     })
   }
 
@@ -186,10 +195,12 @@ document.addEventListener('DOMContentLoaded', () => {
   function displayShape() {
     //remove any trace of a tetromino form the entire grid
     displaySquares.forEach(square => {
-      square.classList.remove('tetromino');
+      square.classList.remove('tetromino')
+      square.style.backgroundColor = ''
     })
     upNextTetrominoes[nextRandom].forEach( index => {
-      displaySquares[displayIndex + index].classList.add('tetromino');
+      displaySquares[displayIndex + index].classList.add('tetromino')
+      displaySquares[displayIndex + index].style.backgroundColor = colors[nextRandom]
     })
   }
 
@@ -216,12 +227,13 @@ document.addEventListener('DOMContentLoaded', () => {
         score +=10
         scoreDisplay.innerHTML = score
         row.forEach(index => {
-          squares[index].classList.remove('taken')
-          squares[index].classList.remove('tetromino')
+          squares[index].classList.remove('taken');
+          squares[index].classList.remove('tetromino');
+          squares[index].style.backgroundColor = '';
         })
-        const squaresRemoved = squares.splice(i, width)
-        squares = squaresRemoved.concat(squares)
-        squares.forEach(cell => grid.appendChild(cell))
+        const squaresRemoved = squares.splice(i, width);
+        squares = squaresRemoved.concat(squares);
+        squares.forEach(cell => grid.appendChild(cell));
       }
     }
   }
