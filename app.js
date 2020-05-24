@@ -27,6 +27,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const startBtn = document.querySelector('#start-btn')
   const width = 10;
   let nextRandom = 0;
+  let timerId;
 
   // console.log(squres[7]);
 
@@ -104,10 +105,12 @@ document.addEventListener('DOMContentLoaded', () => {
       moveDown();
     }
   }
-  document.addEventListener('keyup', control);
+  if(timerId) {
+    document.addEventListener('keyup', control);
+  }
 
   // Move down Tetrominoes in set time intervals
-  let timerId = setInterval(moveDown, 1000);
+  // timerId = setInterval(moveDown, 1000);
 
   //move down function
   function moveDown() {
@@ -187,7 +190,19 @@ document.addEventListener('DOMContentLoaded', () => {
     })
   }
 
-
+  // Add functionality to the button
+  startBtn.addEventListener('click', () => {
+    if (timerId) {
+      clearInterval(timerId)
+      document.removeEventListener('keyup', control);
+      timerId = null
+    } else {
+      draw()
+      document.addEventListener('keyup', control);
+      timerId = setInterval(moveDown, 1000)
+      displayShape()
+    }
+  })
 
 
 
