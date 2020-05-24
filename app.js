@@ -84,9 +84,6 @@ document.addEventListener('DOMContentLoaded', () => {
     })
   }
 
-  // Move down Tetrominos in set time intervals
-  let timerId = setInterval(moveDown, 100);
-
   //assign functions to keyCodes
   function control(e) {
     if(e.keyCode === 37) {
@@ -100,6 +97,9 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
   document.addEventListener('keyup', control);
+
+  // Move down Tetrominos in set time intervals
+  let timerId = setInterval(moveDown, 1000);
 
   //move down function
   function moveDown() {
@@ -142,5 +142,14 @@ document.addEventListener('DOMContentLoaded', () => {
     draw();
   }
 
+  function rotate() {
+    undraw();
+    currentRotation ++;
+    if(currentRotation === current.length) {
+      currentRotation = 0;
+    }
+    current = theTetrominoes[random][currentRotation];
+    draw();
+  }
 
 })
