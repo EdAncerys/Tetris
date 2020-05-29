@@ -1,24 +1,46 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang='en'>
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset='UTF-8'>
+  <meta name='viewport' content='width=device-width, initial-scale=1.0'>
   <link rel='stylesheet' href='./css/style.css'></link>
+  <link rel='stylesheet' href='https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css' integrity='sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk' crossorigin='anonymous'>
   <title>Tetris</title>
 </head>
-<body>
-
-  <h3>Score: <spam id='score'>0</spam></h3>
-  <button id='start-btn'>Start/Pause</button>
-
-  <div id='container'>
-    <div id='grid'>
+  <body>
+    <nav class='navbar navbar-dark bg-primary'></nav>
+    <div class='container card-body'>
+      <div class='text-center'></div>
+        <div class='card text-white bg-success mb-3'>
+          <div class='card-header text-center'><h2>2D Tetris</h2></div> 
+        </div>
+        <div class='card text-center'>
+          <div class='card-header'>
+            Score: <spam id='score'>0</spam>
+          </div>
+          <div class='align-self-center'>
+            <div class='card-body'>
+              <div id='container'>
+                <div id='grid'>
+                </div>
+                <div id='mini-grid'>
+                </div>
+              </div>
+            </div>
+          </div>
+          <a href='#' id='start-btn' class='btn btn-primary'>Start/Pause</a>
+          <div class='card-footer text-muted'>
+            <h3>How To Play 🤩</h3>
+            <div class='card text-white bg-warning mb-3'>
+              "up key" - Move Left </br>
+              "right key" - Move Right </br>
+              "move up" - Rotate Left </br>
+              "move down" - Hard drop </br>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-
-    <div id='mini-grid'>
-    </div>
-  </div>
-
-  <script src='./src/app.js'></script>
-</body>
+    <script src='./src/app.js'></script>
+  </body>
 </html>
