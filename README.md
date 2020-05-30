@@ -19,7 +19,7 @@ No dependencies needed to add in order to play the game. In order to play the ga
 ## Game preview
 
 <p align="center">
-<img width="400" src="images/tetris_01.png"><br />
+<img width="600" src="images/tetris_01.png"><br />
 *2D Tetris*
 </p>
 
