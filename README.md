@@ -16,18 +16,18 @@ Tetris games almost always have the same play mechanics: differently shaped bloc
 No dependencies needed to add in order to play the game. In order to play the game simply open `index.htm` file in browser of your choice or using live server.
 <br />
 
+## Game preview
+
+<p align="center">
+<img width="400" src="images/tetris_01.png"><br />
+*2D Tetris*
+</p>
+
 ## Shapes of tetrominoes
 
 <p align="center">
     <img width="400" src="images/Tetrominoes.png"><br />
     *Tetrominoes*
-</p>
-
-## Game preview
-
-<p align="center">
-    <img width="400" src="images/tetris_01.png"><br />
-    *2D Tetris*
 </p>
 
 ## Controls ##  
